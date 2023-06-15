@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carte de Bafoussam 1er</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Inclure les fichiers CSS et JavaScript de Leaflet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <style>
+    #mapid { height: 500px; }
+  </style>
+
+</head>
+<body>
+
+  <div id="mapid"></div>
+
+  <script>
+    // Coordonnées de Bafoussam 1er
+    var latitude = 5.4736;
+    var longitude = 10.4096;
+
+    // Créer la carte et l'ajouter à la div "mapid"
+    var mymap = L.map('mapid').setView([latitude, longitude], 13);
+
+    // Ajouter une couche OpenStreetMap à la carte
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(mymap);
+
+    // Ajouter un marqueur à la position de Bafoussam 1er
+    L.marker([latitude, longitude]).addTo(mymap)
+      .bindPopup("<b>Bafoussam 1er</b><br />Coordonnées : " + latitude + ", " + longitude);
+
+  </script>
+  <script>
+  javascript
+// Ajouter un groupe de marqueurs pour les points d'eau
+var waterPoints = L.markerClusterGroup();
+waterPoints.addTo(mymap);
+
+// Ajouter les marqueurs pour les points d'eau
+L.marker([5.4738, 10.4104], {icon: L.AwesomeMarkers.icon({icon: 'tint', prefix: 'fa', markerColor: 'blue'})})
+  .bindPopup("<b>Point d'eau</b><br />Coordonnées : 5.4738, 10.4104")
+  .addTo(waterPoints);
+L.marker([5.4761, 10.4075], {icon: L.AwesomeMarkers.icon({icon: 'tint', prefix: 'fa', markerColor: 'blue'})})
+  .bindPopup("<b>Point d'eau</b><br />Coordonnées : 5.4761, 10.4075")
+  .addTo(waterPoints);
+// Ajouter d'autres marqueurs pour les points d'eau...
+
+// Ajouter un groupe de marqueurs pour les écoles
+var schools = L.markerClusterGroup();
+schools.addTo(mymap);
+
+// Ajouter les marqueurs pour les écoles
+L.marker([5.4764, 10.4076], {icon: L.ExtraMarkers.icon({icon: 'graduation-cap', markerColor: 'green', prefix: 'fa', shape: 'square'})})
+  .bindPopup("<b>Ecole primaire</b><br />Coordonnées : 5.4764, 10.4076")
+  .addTo(schools);
+L.marker([5.4758, 10.4081], {icon: L.ExtraMarkers.icon({icon: 'graduation-cap', markerColor: 'green', prefix: 'fa', shape: 'square'})})
+  .bindPopup("<b>Ecole maternelle</b><br />Coordonnées : 5.4758, 10.4081")
+  .addTo(schools);
+// Ajouter d'autres marqueurs pour les écoles...
+
+// Ajouter un groupe de marqueurs pour les formations sanitaires
+var healthFacilities = L.markerClusterGroup();
+healthFacilities.addTo(mymap);
+
+// Ajouter les marqueurs pour les formations sanitaires
+L.marker([5.4762, 10.4072], {icon: L.ExtraMarkers.icon({icon: 'hospital', markerColor: 'red', prefix: 'fa', shape: 'star'})})
+  .bindPopup("<b>Centre de santé</b><br />Coordonnées : 5.4762, 10.4072")
+  .addTo(healthFacilities);
+L.marker([5.4739, 10.4107], {icon: L.ExtraMarkers.icon({icon: 'hospital', markerColor: 'red', prefix: 'fa', shape: 'star'})})
+  .bindPopup("<b>Hôpital</b><br />Coordonnées : 5.4739, 10.4107")
+  .addTo(healthFacilities);
+// Ajouter d'autres marqueurs pour les formations sanitaires...
+</script>
+<script>
+// Ajouter un groupe de marqueurs pour les écoles
+var schools = L.markerClusterGroup();
+schools.addTo(mymap);
+
+// Ajouter les marqueurs pour les écoles
+L.marker([5.4764, 10.4076], {icon: L.ExtraMarkers.icon({icon: 'graduation-cap', markerColor: 'green', prefix: 'fa', shape: 'square'})})
+  .bindPopup("<b>Ecole primaire de Bafoussam 1er</b><br />Coordonnées : 5.4764, 10.4076")
+  .addTo(schools);
+L.marker([5.4758, 10.4081], {icon: L.ExtraMarkers.icon({icon: 'graduation-cap', markerColor: 'green', prefix: 'fa', shape: 'square'})})
+  .bindPopup("<b>Ecole maternelle de Bafoussam 1er</b><br />Coordonnées : 5.4758, 10.4081")
+  .addTo(schools);
+
+// Ajouter un groupe de marqueurs pour les formations sanitaires
+var healthFacilities = L.markerClusterGroup();
+healthFacilities.addTo(mymap);
+
+// Ajouter les marqueurs pour les formations sanitaires
+L.marker([5.4762, 10.4072], {icon: L.ExtraMarkers.icon({icon: 'hospital', markerColor: 'red', prefix: 'fa', shape: 'star'})})
+  .bindPopup("<b>Centre de santé de Bafoussam 1er</b><br />Coordonnées : 5.4762, 10.4072")
+  .addTo(healthFacilities);
+L.marker([5.4739, 10.4107], {icon: L.ExtraMarkers.icon({icon: 'hospital', markerColor: 'red', prefix: 'fa', shape: 'star'})})
+  .bindPopup("<b>Hôpital de Bafoussam 1er</b><br />Coordonnées : 5.4739, 10.4107")
+  .addTo(healthFacilities);
+  </script>
+  <script>
+// Définir un objet contenant les propriétés de style pour la ligne
+var style = {
+  color: 'red'
+};
+
+// Parcourir toutes les couches de la carte
+mymap.eachLayer(function(layer) {
+  // Vérifier si la couche est une ligne
+  if (layer instanceof L.Polyline) {
+    // Vérifier si la couche est dans le quartier Bafoussam 1er
+    if (layer.feature.properties.quartier === "Bafoussam 1er") {
+      // Définir le style de la ligne en rouge
+      layer.setStyle(style);
+    }
+  }
+});
+   </script>
+</body>
+</html>
